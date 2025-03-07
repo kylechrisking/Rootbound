@@ -1,0 +1,392 @@
+Using pre-set license
+Built from '6000.0/staging' branch; Version is '6000.0.40f1 (157d81624ddf) revision 1408385'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Professional' Language: 'en' Physical Memory: 16110 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.40f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Kyle/OneDrive/Documents/projects/Rootbound
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+56942
+-job-worker-count
+3
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: C:/Users/Kyle/OneDrive/Documents/projects/Rootbound
+C:/Users/Kyle/OneDrive/Documents/projects/Rootbound
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [4692]  Target information:
+
+Player connection [4692]  * "[IP] 192.168.1.86 [Port] 0 [Flags] 2 [Guid] 2617788222 [EditorId] 2617788222 [Version] 1048832 [Id] WindowsEditor(7,KKL01) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [4692] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [4692] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 3
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.40f1 (157d81624ddf)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Kyle/OneDrive/Documents/projects/Rootbound/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(R) Xe Graphics (ID=0x9a49)
+    Vendor:   Intel
+    VRAM:     8055 MB
+    Driver:   32.0.101.5768
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56324
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003563 seconds.
+- Loaded All Assemblies, in  0.436 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.397 seconds
+Domain Reload Profiling: 831ms
+	BeginReloadAssembly (128ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (63ms)
+	LoadAllAssembliesAndSetupDomain (192ms)
+		LoadAssemblies (125ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (189ms)
+			TypeCache.Refresh (187ms)
+				TypeCache.ScanAssembly (172ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (398ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (362ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (25ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (72ms)
+			ProcessInitializeOnLoadAttributes (192ms)
+			ProcessInitializeOnLoadMethodAttributes (66ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.327 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.437 seconds
+Domain Reload Profiling: 762ms
+	BeginReloadAssembly (209ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (34ms)
+	RebuildCommonClasses (52ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (26ms)
+	LoadAllAssembliesAndSetupDomain (18ms)
+		LoadAssemblies (134ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (3ms)
+			BuildScriptInfoCaches (1ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (437ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (287ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (80ms)
+			ProcessInitializeOnLoadAttributes (159ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 110 unused Assets / (38.2 KB). Loaded Objects now: 605.
+Memory consumption went from 53.1 MB to 53.1 MB.
+Total: 3.254700 ms (FindLiveObjects: 0.039400 ms CreateObjectMapping: 0.006800 ms MarkObjects: 3.118200 ms  DeleteObjects: 0.088600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 552201.798973 seconds.
+  path: Assets/Scenes/TitleScene.unity
+  artifactKey: Guid(4b1e823b149e448488ebe572628d310b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TitleScene.unity using Guid(4b1e823b149e448488ebe572628d310b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4607a5c311bfdec591db509e8aa32f7f') in 0.0036753 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.816621 seconds.
+  path: Assets/Scenes/LoadingScene.unity
+  artifactKey: Guid(2c7bd17d0f0dc6a48ae0aa44d8e326e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/LoadingScene.unity using Guid(2c7bd17d0f0dc6a48ae0aa44d8e326e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9f45b0819b952844ce5cb14597bd971b') in 0.000807 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.334890 seconds.
+  path: Assets/Scenes/GameScene.unity
+  artifactKey: Guid(bd0df9a9ea9e8fd46a81ced8b4c730fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameScene.unity using Guid(bd0df9a9ea9e8fd46a81ced8b4c730fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e2742c33e8c509e89838289ca9ad672c') in 0.0006373 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1704.026555 seconds.
+  path: Assets/Scenes/UI
+  artifactKey: Guid(9ce474adf93ab3a42af1b042c48d2f7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI using Guid(9ce474adf93ab3a42af1b042c48d2f7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e949e09e839bd9bdd177b598c04c2b4a') in 0.0009186 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 44.932203 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uxml
+  artifactKey: Guid(c052be0d6f39c1f4893522d66c039c5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uxml using Guid(c052be0d6f39c1f4893522d66c039c5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6c88fffbc4e7ecb537d9d90309e2d5a0') in 0.0860152 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.501079 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss.uxml
+  artifactKey: Guid(036e150f59a065c4c86405ff9ceace96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss.uxml using Guid(036e150f59a065c4c86405ff9ceace96) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c0840bb3fd1a0e577966ef0b81b7c221') in 0.0018699 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 120.918614 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6cd2ecb76a7942dfc53e52c06faa19c1') in 0.0060548 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 574.978676 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '524a0136062f18d863f08c935db5a3a8') in 0.0047797 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 186.966677 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0a8ac247709fed679f84080278f781d7') in 0.0025182 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 66.262004 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fdb3c723892934201e70c6e99ce85869') in 0.0024791 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 129.072406 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a202b650a4c4ad0049e0ff3cc0453695') in 0.0026245 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 108.452365 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6209e0ab20c3d564a1e4dd1fa98a975a') in 0.0062308 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 51.057322 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dbf152b070be0112d76f374d914cfc88') in 0.0018803 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 68.889688 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0140224f77c7bfbe1bf32be4340a3c55') in 0.001866 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 320.034569 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uxml
+  artifactKey: Guid(c052be0d6f39c1f4893522d66c039c5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uxml using Guid(c052be0d6f39c1f4893522d66c039c5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '39a55ab6f8b5b57e93bfb1c415aee207') in 0.0543797 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 60.815334 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c61927de271cdc9e14beb4a369ded511') in 0.0017273 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1025.065089 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '25a2b65943a0ac0179864e64109e40c2') in 0.0026872 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 65.900901 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '32460412e18c2132b1618e48cb6d34fd') in 0.0020617 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 87.759880 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9078ee753ba49e773b1fc969f270e5ca') in 0.0024214 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 88.274836 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'da9dfae2d5378ede86240399e5160cf1') in 0.0024702 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 55.275306 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '829ab38a8601552b66ece4dd2aa516aa') in 0.002024 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 670.403223 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6745e05f42a91e3b22ee9d41113d138d') in 0.0046219 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.194455 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '17cf6a43a4c949b783bd3f298ebc3ffe') in 0.00302 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 118.554199 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bad14f338c6b1bf8467ede386f06b805') in 0.0020168 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 63.195622 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '56988229ff4b0646a74f0c4a73b8f312') in 0.0030983 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 56.910576 seconds.
+  path: Assets/Scenes/UI/TitleScreen.uss
+  artifactKey: Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/UI/TitleScreen.uss using Guid(d1be8ca36b80cf743a914ca0d2bd22d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3c83b324ccc59a71c06e427dd02f587e') in 0.0027278 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
