@@ -1,0 +1,80 @@
+.notification-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    max-height: 80%;
+}
+
+.notification {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 8px;
+    border-width: 1px;
+    transition: all 0.3s;
+}
+
+.notification.achievement {
+    border-color: rgb(255, 215, 0);
+}
+
+.notification.resource {
+    border-color: rgb(66, 220, 219);
+}
+
+.notification.general {
+    border-color: rgb(200, 200, 200);
+}
+
+.notification .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.notification .title {
+    font-size: 16px;
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+}
+
+.notification .close-button {
+    width: 20px;
+    height: 20px;
+    background-image: resource('Icons/close');
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.notification .close-button:hover {
+    opacity: 1;
+}
+
+.notification .message {
+    font-size: 14px;
+    color: rgb(200, 200, 200);
+    white-space: normal;
+}
+
+.notification .icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+}
+
+.notification.entering {
+    translate: 100% 0;
+    opacity: 0;
+}
+
+.notification.visible {
+    translate: 0 0;
+    opacity: 1;
+}
+
+.notification.exiting {
+    translate: 100% 0;
+    opacity: 0;
+} 

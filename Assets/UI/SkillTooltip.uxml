@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd">
+
+    <engine:VisualElement name="tooltip-container" class="tooltip">
+        <engine:Label name="skill-name" class="name" />
+        <engine:Label name="skill-description" class="description" />
+        <engine:Label name="skill-requirements" class="requirements" />
+        <engine:Label name="skill-cost" class="cost" />
+    </engine:VisualElement>
+
+</engine:UXML> 

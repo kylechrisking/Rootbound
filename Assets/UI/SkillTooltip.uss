@@ -1,0 +1,40 @@
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-width: 1px;
+    border-color: rgb(66, 220, 219);
+    border-radius: 8px;
+    padding: 12px;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.tooltip .name {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: rgb(66, 220, 219);
+    margin-bottom: 8px;
+}
+
+.tooltip .description {
+    font-size: 14px;
+    color: rgb(220, 220, 220);
+    white-space: normal;
+    margin-bottom: 12px;
+}
+
+.tooltip .requirements {
+    font-size: 12px;
+    color: rgb(180, 180, 180);
+    white-space: normal;
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.tooltip .cost {
+    font-size: 14px;
+    -unity-font-style: bold;
+    color: rgb(255, 200, 0);
+} 

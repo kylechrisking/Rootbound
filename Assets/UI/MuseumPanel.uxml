@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd"
+>
+    <engine:VisualElement name="museum-panel" class="museum-panel">
+        <engine:VisualElement name="header" class="header">
+            <engine:Label text="Museum" class="title" />
+            <engine:VisualElement name="stats-container" class="stats-container">
+                <engine:Label name="total-exhibits" class="stat-label" />
+                <engine:Label name="completion-rate" class="stat-label" />
+            </engine:VisualElement>
+            <engine:Button name="close-button" text="×" class="close-button" />
+        </engine:VisualElement>
+
+        <engine:VisualElement name="content" class="content">
+            <engine:VisualElement name="left-panel" class="left-panel">
+                <engine:ScrollView name="wing-list" class="wing-list">
+                    <!-- Wing entries will be added here dynamically -->
+                </engine:ScrollView>
+
+                <engine:VisualElement name="theme-section" class="theme-section">
+                    <engine:Label text="Active Themes" class="section-title" />
+                    <engine:ScrollView name="theme-list" class="theme-list">
+                        <!-- Theme entries will be added here dynamically -->
+                    </engine:ScrollView>
+                </engine:VisualElement>
+            </engine:VisualElement>
+
+            <engine:VisualElement name="right-panel" class="right-panel">
+                <engine:VisualElement name="wing-details" class="wing-details">
+                    <engine:VisualElement name="wing-header" class="wing-header">
+                        <engine:Image name="wing-icon" class="wing-icon" />
+                        <engine:VisualElement class="wing-title-container">
+                            <engine:Label name="wing-title" class="wing-title" />
+                            <engine:Label name="wing-completion" class="wing-completion" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+
+                    <engine:Label name="wing-description" class="wing-description" />
+                    
+                    <engine:ScrollView name="exhibit-grid" class="exhibit-grid">
+                        <!-- Exhibit slots will be added here dynamically -->
+                    </engine:ScrollView>
+
+                    <engine:VisualElement name="exhibit-details" class="exhibit-details">
+                        <engine:Image name="exhibit-icon" class="exhibit-icon" />
+                        <engine:Label name="exhibit-name" class="exhibit-name" />
+                        <engine:Label name="exhibit-description" class="exhibit-description" />
+                        
+                        <engine:VisualElement name="requirements-section" class="requirements-section">
+                            <engine:Label text="Requirements" class="section-title" />
+                            <engine:ScrollView name="requirements-list" class="requirements-list">
+                                <!-- Requirements will be added here dynamically -->
+                            </engine:ScrollView>
+                        </engine:VisualElement>
+
+                        <engine:VisualElement name="rewards-section" class="rewards-section">
+                            <engine:Label text="Rewards" class="section-title" />
+                            <engine:ScrollView name="rewards-list" class="rewards-list">
+                                <!-- Rewards will be added here dynamically -->
+                            </engine:ScrollView>
+                        </engine:VisualElement>
+
+                        <engine:Button name="place-button" text="Place Exhibit" class="place-button" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+
+        <engine:VisualElement name="milestones-panel" class="milestones-panel">
+            <engine:Label text="Museum Milestones" class="section-title" />
+            <engine:ScrollView name="milestone-list" class="milestone-list">
+                <!-- Milestone entries will be added here dynamically -->
+            </engine:ScrollView>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML> 

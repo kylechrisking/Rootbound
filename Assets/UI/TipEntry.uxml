@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd">
+
+    <engine:VisualElement class="tip-entry">
+        <engine:VisualElement name="completion-icon" class="icon" />
+        <engine:VisualElement class="content">
+            <engine:Label name="title-text" class="title" />
+            <engine:Label name="message-text" class="message" />
+        </engine:VisualElement>
+        <engine:VisualElement name="new-indicator" class="new-badge" />
+    </engine:VisualElement>
+
+</engine:UXML> 

@@ -1,0 +1,76 @@
+.achievement-entry {
+    flex-direction: row;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    margin: 8px;
+    border-width: 1px;
+    border-color: rgba(66, 220, 219, 0.3);
+    transition: all 0.2s;
+}
+
+.achievement-entry:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-color: rgba(66, 220, 219, 0.6);
+    scale: 1.02;
+}
+
+.achievement-entry .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    margin-right: 16px;
+    background-color: rgba(66, 220, 219, 0.1);
+    border-width: 2px;
+    border-color: rgba(66, 220, 219, 0.3);
+}
+
+.achievement-entry .content {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.achievement-entry .name {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    margin-bottom: 4px;
+}
+
+.achievement-entry .description {
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+    white-space: normal;
+    margin-bottom: 8px;
+}
+
+.achievement-entry .progress {
+    height: 4px;
+}
+
+.achievement-entry .progress .unity-progress-bar__progress {
+    background-color: rgb(66, 220, 219);
+}
+
+.achievement-entry .completion {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    margin-left: 16px;
+}
+
+.completed .completion {
+    background-image: resource('Icons/achievement-complete');
+}
+
+.locked .icon {
+    opacity: 0.5;
+}
+
+.locked .name {
+    color: rgb(120, 120, 120);
+}
+
+.locked .description {
+    color: rgb(100, 100, 100);
+} 

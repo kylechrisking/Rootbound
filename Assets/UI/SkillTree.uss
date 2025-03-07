@@ -1,0 +1,23 @@
+.skill-tree {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.points-text {
+    font-size: 24px;
+    -unity-font-style: bold;
+    color: rgb(66, 220, 219);
+    margin-bottom: 20px;
+    -unity-text-align: upper-center;
+}
+
+.scroll-view {
+    flex-grow: 1;
+}
+
+.container {
+    flex-grow: 1;
+    min-width: 1000px;
+    min-height: 800px;
+    position: relative;
+} 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd"
+>
+    <engine:VisualElement name="quest-panel" class="quest-panel">
+        <engine:VisualElement name="header" class="header">
+            <engine:Label text="Quests" class="title" />
+            <engine:Button name="close-button" text="×" class="close-button" />
+        </engine:VisualElement>
+
+        <engine:VisualElement name="content" class="content">
+            <engine:VisualElement name="left-panel" class="left-panel">
+                <engine:VisualElement name="quest-filters" class="quest-filters">
+                    <engine:Button name="all-quests" text="All" class="filter-button selected" />
+                    <engine:Button name="main-quests" text="Main Story" class="filter-button" />
+                    <engine:Button name="side-quests" text="Side Quests" class="filter-button" />
+                    <engine:Button name="daily-quests" text="Daily" class="filter-button" />
+                </engine:VisualElement>
+
+                <engine:ScrollView name="quest-list" class="quest-list">
+                    <!-- Quest entries will be added here dynamically -->
+                </engine:ScrollView>
+            </engine:VisualElement>
+
+            <engine:VisualElement name="right-panel" class="right-panel">
+                <engine:VisualElement name="quest-details" class="quest-details">
+                    <engine:VisualElement name="quest-header" class="quest-header">
+                        <engine:Image name="quest-icon" class="quest-icon" />
+                        <engine:VisualElement class="quest-title-container">
+                            <engine:Label name="quest-title" class="quest-title" />
+                            <engine:Label name="quest-type" class="quest-type" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+
+                    <engine:Label name="quest-description" class="quest-description" />
+                    
+                    <engine:VisualElement name="quest-progress" class="quest-progress">
+                        <engine:Label text="Progress" class="section-title" />
+                        <engine:ProgressBar name="progress-bar" class="progress-bar" />
+                        <engine:Label name="time-remaining" class="time-remaining" />
+                    </engine:VisualElement>
+
+                    <engine:ScrollView name="objectives-list" class="objectives-list">
+                        <!-- Objectives will be added here dynamically -->
+                    </engine:ScrollView>
+
+                    <engine:VisualElement name="rewards-section" class="rewards-section">
+                        <engine:Label text="Rewards" class="section-title" />
+                        <engine:VisualElement name="rewards-container" class="rewards-container">
+                            <!-- Rewards will be added here dynamically -->
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+
+                    <engine:VisualElement name="quest-actions" class="quest-actions">
+                        <engine:Button name="accept-button" text="Accept Quest" class="action-button accept" />
+                        <engine:Button name="abandon-button" text="Abandon Quest" class="action-button abandon" />
+                        <engine:Button name="track-button" text="Track Quest" class="action-button track" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML> 

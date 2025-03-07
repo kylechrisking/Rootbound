@@ -1,36 +1,46 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UIElements;
 
 public class TipEntryUI : MonoBehaviour
 {
-    [Header("UI Elements")]
-    [SerializeField] private TextMeshProUGUI titleText;
-    [SerializeField] private TextMeshProUGUI messageText;
-    [SerializeField] private Image completionIcon;
-    [SerializeField] private GameObject newIndicator;
+    private Label titleLabel;
+    private Label messageLabel;
+    private VisualElement completionIcon;
+    private VisualElement newIndicator;
     
-    [Header("Visual States")]
-    [SerializeField] private Color completedColor = Color.green;
-    [SerializeField] private Color incompleteColor = Color.white;
-    [SerializeField] private Sprite completedIcon;
-    [SerializeField] private Sprite incompleteIcon;
+    private UIDocument document;
+    
+    private void Awake()
+    {
+        document = GetComponent<UIDocument>();
+        if (document == null)
+        {
+            Debug.LogError("No UIDocument found on TipEntryUI!");
+            return;
+        }
 
-    private TutorialManager.TutorialStep tutorialStep;
+        var root = document.rootVisualElement;
+        
+        // Get references to UI elements
+        titleLabel = root.Q<Label>("title-text");
+        messageLabel = root.Q<Label>("message-text");
+        completionIcon = root.Q<VisualElement>("completion-icon");
+        newIndicator = root.Q<VisualElement>("new-indicator");
+    }
 
     public void Initialize(TutorialManager.TutorialStep step)
     {
-        tutorialStep = step;
         bool isCompleted = TutorialManager.Instance.HasCompletedTutorial(step.id);
         
-        titleText.text = step.title;
-        messageText.text = step.message;
+        titleLabel.text = step.title;
+        messageLabel.text = step.message;
         
         // Update visual state
-        titleText.color = isCompleted ? completedColor : incompleteColor;
-        completionIcon.sprite = isCompleted ? completedIcon : incompleteIcon;
+        titleLabel.AddToClassList(isCompleted ? "completed" : "incomplete");
+        completionIcon.AddToClassList(isCompleted ? "completed-icon" : "incomplete-icon");
         
         // Show new indicator if completed recently
-        newIndicator.SetActive(TutorialManager.Instance.IsRecentlyCompleted(step.id));
+        newIndicator.style.display = TutorialManager.Instance.IsRecentlyCompleted(step.id) ? 
+            DisplayStyle.Flex : DisplayStyle.None;
     }
 } 

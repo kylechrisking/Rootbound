@@ -4,168 +4,127 @@ using System;
 
 public class AchievementManager : MonoBehaviour
 {
-    private static AchievementManager _instance;
-    public static AchievementManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<AchievementManager>();
-            }
-            return _instance;
-        }
-    }
+    public static AchievementManager Instance { get; private set; }
 
-    [SerializeField] private AchievementData[] achievements;
-    
-    private Dictionary<string, Achievement> achievementProgress = new Dictionary<string, Achievement>();
-    public event Action<Achievement> OnAchievementUnlocked;
-    public event Action<Achievement> OnProgressUpdated;
-
-    [System.Serializable]
-    public class Achievement
-    {
-        public AchievementData data;
-        public bool isUnlocked;
-        public float currentProgress;
-        public DateTime unlockTime;
-    }
+    [SerializeField] private List<Achievement> achievements = new List<Achievement>();
+    private Dictionary<string, Achievement> achievementMap = new Dictionary<string, Achievement>();
 
     private void Awake()
     {
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-            InitializeAchievements();
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
-    }
+        Instance = this;
 
-    private void InitializeAchievements()
-    {
-        foreach (var data in achievements)
+        // Initialize achievement map
+        foreach (var achievement in achievements)
         {
-            achievementProgress[data.id] = new Achievement
-            {
-                data = data,
-                isUnlocked = false,
-                currentProgress = 0f
-            };
+            achievementMap[achievement.id] = achievement;
         }
+
+        // Load saved achievement progress
+        LoadAchievements();
     }
 
     public void UpdateProgress(string achievementId, float progress)
     {
-        if (!achievementProgress.TryGetValue(achievementId, out Achievement achievement))
-            return;
-
-        if (achievement.isUnlocked)
-            return;
-
-        achievement.currentProgress = progress;
-        OnProgressUpdated?.Invoke(achievement);
-
-        if (achievement.data.hasProgress && 
-            achievement.currentProgress >= achievement.data.progressTarget)
+        if (achievementMap.TryGetValue(achievementId, out Achievement achievement))
         {
-            UnlockAchievement(achievementId);
-        }
-    }
-
-    public void IncrementProgress(string achievementId, float amount = 1f)
-    {
-        if (achievementProgress.TryGetValue(achievementId, out Achievement achievement))
-        {
-            UpdateProgress(achievementId, achievement.currentProgress + amount);
+            if (!achievement.isLocked && !achievement.isCompleted)
+            {
+                achievement.UpdateProgress(progress);
+                SaveAchievements();
+            }
         }
     }
 
     public void UnlockAchievement(string achievementId)
     {
-        if (!achievementProgress.TryGetValue(achievementId, out Achievement achievement))
-            return;
-
-        if (achievement.isUnlocked)
-            return;
-
-        achievement.isUnlocked = true;
-        achievement.unlockTime = DateTime.Now;
-        
-        // Grant rewards
-        if (achievement.data.skillPointReward > 0)
+        if (achievementMap.TryGetValue(achievementId, out Achievement achievement))
         {
-            SkillManager.Instance.AddSkillPoints(achievement.data.skillPointReward);
-        }
-
-        if (achievement.data.growthBoostReward > 0)
-        {
-            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
-            playerStats?.AddGrowthRateBonus(achievement.data.growthBoostReward);
-        }
-
-        OnAchievementUnlocked?.Invoke(achievement);
-    }
-
-    public bool IsAchievementUnlocked(string achievementId)
-    {
-        return achievementProgress.TryGetValue(achievementId, out Achievement achievement) 
-            && achievement.isUnlocked;
-    }
-
-    public float GetProgress(string achievementId)
-    {
-        if (achievementProgress.TryGetValue(achievementId, out Achievement achievement))
-        {
-            return achievement.currentProgress;
-        }
-        return 0f;
-    }
-
-    public Achievement[] GetAllAchievements()
-    {
-        Achievement[] result = new Achievement[achievementProgress.Count];
-        achievementProgress.Values.CopyTo(result, 0);
-        return result;
-    }
-
-    // Save/Load system integration
-    public void SaveProgress(GameData data)
-    {
-        data.achievementStates = new Dictionary<string, bool>();
-        data.achievementProgress = new Dictionary<string, float>();
-        data.achievementUnlockTimes = new Dictionary<string, DateTime>();
-
-        foreach (var kvp in achievementProgress)
-        {
-            data.achievementStates[kvp.Key] = kvp.Value.isUnlocked;
-            data.achievementProgress[kvp.Key] = kvp.Value.currentProgress;
-            if (kvp.Value.unlockTime != default)
+            if (achievement.isLocked)
             {
-                data.achievementUnlockTimes[kvp.Key] = kvp.Value.unlockTime;
+                achievement.Unlock();
+                SaveAchievements();
             }
         }
     }
 
-    public void LoadProgress(GameData data)
+    public Achievement GetAchievement(string achievementId)
     {
-        if (data.achievementStates == null) return;
+        return achievementMap.TryGetValue(achievementId, out Achievement achievement) ? achievement : null;
+    }
 
-        foreach (var kvp in data.achievementStates)
+    public List<Achievement> GetAllAchievements()
+    {
+        return new List<Achievement>(achievements);
+    }
+
+    public float GetCompletionPercentage()
+    {
+        if (achievements.Count == 0) return 0f;
+
+        int completed = 0;
+        foreach (var achievement in achievements)
         {
-            if (achievementProgress.TryGetValue(kvp.Key, out Achievement achievement))
+            if (achievement.isCompleted) completed++;
+        }
+
+        return (float)completed / achievements.Count * 100f;
+    }
+
+    private void SaveAchievements()
+    {
+        // Create achievement save data
+        var saveData = new Dictionary<string, AchievementSaveData>();
+        foreach (var achievement in achievements)
+        {
+            saveData[achievement.id] = new AchievementSaveData
             {
-                achievement.isUnlocked = kvp.Value;
-                achievement.currentProgress = data.achievementProgress[kvp.Key];
-                if (data.achievementUnlockTimes.TryGetValue(kvp.Key, out DateTime unlockTime))
-                {
-                    achievement.unlockTime = unlockTime;
-                }
+                isCompleted = achievement.isCompleted,
+                isLocked = achievement.isLocked,
+                progress = achievement.progress
+            };
+        }
+
+        // Save to PlayerPrefs as JSON
+        string json = JsonUtility.ToJson(new AchievementSaveDataWrapper { achievements = saveData });
+        PlayerPrefs.SetString("Achievements", json);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadAchievements()
+    {
+        string json = PlayerPrefs.GetString("Achievements", "");
+        if (string.IsNullOrEmpty(json)) return;
+
+        var saveData = JsonUtility.FromJson<AchievementSaveDataWrapper>(json);
+        if (saveData?.achievements == null) return;
+
+        foreach (var kvp in saveData.achievements)
+        {
+            if (achievementMap.TryGetValue(kvp.Key, out Achievement achievement))
+            {
+                achievement.isCompleted = kvp.Value.isCompleted;
+                achievement.isLocked = kvp.Value.isLocked;
+                achievement.progress = kvp.Value.progress;
             }
         }
+    }
+
+    [System.Serializable]
+    private class AchievementSaveData
+    {
+        public bool isCompleted;
+        public bool isLocked;
+        public float progress;
+    }
+
+    [System.Serializable]
+    private class AchievementSaveDataWrapper
+    {
+        public Dictionary<string, AchievementSaveData> achievements;
     }
 } 

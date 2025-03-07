@@ -3,12 +3,12 @@
     "UxmlPath": "Assets/Scenes/UI/TitleScreen.uxml",
     "CanvasX": 0,
     "CanvasY": 0,
-    "CanvasWidth": 967,
+    "CanvasWidth": 977,
     "CanvasHeight": -52,
     "MatchGameView": false,
     "ZoomScale": 1.0,
     "PanOffset": {
-        "x": 23.0,
+        "x": 279.5,
         "y": 26.0
     },
     "ColorModeBackgroundOpacity": 1.0,

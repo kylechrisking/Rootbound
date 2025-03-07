@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd">
+
+    <engine:VisualElement name="crafting-panel" class="crafting-panel">
+        <engine:VisualElement class="header">
+            <engine:Label name="station-name" class="title" />
+            <engine:Button name="close-button" class="close-button" />
+        </engine:VisualElement>
+
+        <engine:VisualElement class="content">
+            <!-- Left Side - Categories and Recipe List -->
+            <engine:VisualElement class="left-panel">
+                <engine:VisualElement class="category-list">
+                    <engine:Button name="all-category" text="All" class="category-button selected" />
+                    <!-- Categories added dynamically -->
+                </engine:VisualElement>
+                
+                <engine:ScrollView name="recipe-list" class="recipe-list">
+                    <!-- Recipe entries added dynamically -->
+                </engine:ScrollView>
+            </engine:VisualElement>
+
+            <!-- Right Side - Recipe Details -->
+            <engine:VisualElement class="right-panel">
+                <engine:VisualElement name="recipe-details" class="recipe-details">
+                    <engine:VisualElement name="recipe-header" class="recipe-header">
+                        <engine:VisualElement name="recipe-icon" class="recipe-icon" />
+                        <engine:VisualElement class="recipe-title-container">
+                            <engine:Label name="recipe-name" class="recipe-name" />
+                            <engine:Label name="recipe-description" class="recipe-description" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+
+                    <engine:VisualElement class="requirements-section">
+                        <engine:Label text="Requirements" class="section-title" />
+                        <engine:VisualElement name="ingredients-list" class="ingredients-list">
+                            <!-- Ingredients added dynamically -->
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+
+                    <engine:VisualElement class="results-section">
+                        <engine:Label text="Results" class="section-title" />
+                        <engine:VisualElement name="results-list" class="results-list">
+                            <!-- Results added dynamically -->
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+
+                    <engine:VisualElement class="craft-controls">
+                        <engine:SliderInt name="craft-amount" class="craft-amount" />
+                        <engine:Button name="craft-button" text="Craft" class="craft-button" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+
+                <engine:VisualElement name="active-crafts" class="active-crafts">
+                    <engine:Label text="In Progress" class="section-title" />
+                    <engine:ScrollView name="crafting-queue" class="crafting-queue">
+                        <!-- Active crafts added dynamically -->
+                    </engine:ScrollView>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+
+</engine:UXML> 

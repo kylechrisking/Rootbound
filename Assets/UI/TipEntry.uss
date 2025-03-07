@@ -1,0 +1,57 @@
+.tip-entry {
+    flex-direction: row;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    margin: 4px;
+}
+
+.tip-entry .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    align-self: center;
+}
+
+.tip-entry .content {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.tip-entry .title {
+    font-size: 16px;
+    -unity-font-style: bold;
+    margin-bottom: 4px;
+    color: rgb(255, 255, 255);
+}
+
+.tip-entry .message {
+    font-size: 14px;
+    color: rgb(200, 200, 200);
+    white-space: normal;
+}
+
+.tip-entry .new-badge {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgb(66, 220, 219);
+    align-self: flex-start;
+    margin: 4px;
+}
+
+.completed {
+    color: rgb(66, 220, 219);
+}
+
+.incomplete {
+    color: rgb(180, 180, 180);
+}
+
+.completed-icon {
+    background-image: resource('Icons/completed');
+}
+
+.incomplete-icon {
+    background-image: resource('Icons/incomplete');
+} 

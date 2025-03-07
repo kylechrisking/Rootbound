@@ -1,26 +1,33 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UIElements;
 using System.Collections.Generic;
 
 public class SkillTreeUI : MonoBehaviour
 {
-    [Header("UI References")]
-    [SerializeField] private GameObject skillNodePrefab;
-    [SerializeField] private RectTransform skillTreeContainer;
-    [SerializeField] private TextMeshProUGUI skillPointsText;
-    [SerializeField] private GameObject skillTooltip;
-    [SerializeField] private LineRenderer skillConnectionPrefab;
-    
-    [Header("Layout Settings")]
+    [Header("UI Settings")]
     [SerializeField] private float horizontalSpacing = 200f;
     [SerializeField] private float verticalSpacing = 150f;
-    [SerializeField] private Color availableColor = Color.white;
-    [SerializeField] private Color lockedColor = Color.gray;
-    [SerializeField] private Color unlockedColor = Color.green;
-
+    
+    private UIDocument document;
+    private VisualElement skillTreeContainer;
+    private Label skillPointsLabel;
     private Dictionary<string, SkillNodeUI> skillNodes = new Dictionary<string, SkillNodeUI>();
-    private List<LineRenderer> connectionLines = new List<LineRenderer>();
+
+    private void Awake()
+    {
+        document = GetComponent<UIDocument>();
+        if (document == null)
+        {
+            Debug.LogError("No UIDocument found on SkillTreeUI!");
+            return;
+        }
+
+        var root = document.rootVisualElement;
+        
+        // Get references to UI elements
+        skillTreeContainer = root.Q<VisualElement>("skill-tree-container");
+        skillPointsLabel = root.Q<Label>("skill-points-text");
+    }
 
     private void Start()
     {
@@ -31,10 +38,8 @@ public class SkillTreeUI : MonoBehaviour
     private void InitializeSkillTree()
     {
         // Clear existing nodes
-        foreach (Transform child in skillTreeContainer)
-        {
-            Destroy(child.gameObject);
-        }
+        skillTreeContainer.Clear();
+        skillNodes.Clear();
 
         // Get all available skills from SkillManager
         SkillData[] skills = SkillManager.Instance.GetAvailableSkills();
@@ -54,21 +59,26 @@ public class SkillTreeUI : MonoBehaviour
 
     private void CreateSkillNode(SkillData skill)
     {
-        GameObject nodeObj = Instantiate(skillNodePrefab, skillTreeContainer);
-        SkillNodeUI node = nodeObj.GetComponent<SkillNodeUI>();
+        // Create skill node template
+        TemplateContainer nodeTemplate = new TemplateContainer();
+        nodeTemplate.name = $"skill-node-{skill.skillName}";
+        nodeTemplate.AddToClassList("skill-node");
         
-        node.Initialize(skill, OnSkillNodeClicked);
-        skillNodes.Add(skill.skillName, node);
+        var node = nodeTemplate.Q<SkillNodeUI>();
+        if (node != null)
+        {
+            node.Initialize(skill, OnSkillNodeClicked);
+            skillNodes.Add(skill.skillName, node);
 
-        // Position the node based on its tier and position in the tree
-        // This is a simple layout - you might want to customize this
-        int tier = GetSkillTier(skill);
-        int position = GetSkillPositionInTier(skill, tier);
-        
-        nodeObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(
-            tier * horizontalSpacing,
-            position * verticalSpacing
-        );
+            // Position the node
+            int tier = GetSkillTier(skill);
+            int position = GetSkillPositionInTier(skill, tier);
+            
+            nodeTemplate.style.left = tier * horizontalSpacing;
+            nodeTemplate.style.top = position * verticalSpacing;
+            
+            skillTreeContainer.Add(nodeTemplate);
+        }
     }
 
     private void CreateSkillConnections()
@@ -79,18 +89,29 @@ public class SkillTreeUI : MonoBehaviour
             {
                 if (skillNodes.TryGetValue(prereqName, out SkillNodeUI prereqNode))
                 {
-                    CreateConnectionLine(prereqNode.transform.position, node.transform.position);
+                    CreateConnectionLine(prereqNode, node);
                 }
             }
         }
     }
 
-    private void CreateConnectionLine(Vector3 start, Vector3 end)
+    private void CreateConnectionLine(SkillNodeUI start, SkillNodeUI end)
     {
-        LineRenderer line = Instantiate(skillConnectionPrefab, skillTreeContainer);
-        line.SetPosition(0, start);
-        line.SetPosition(1, end);
-        connectionLines.Add(line);
+        var connection = new VisualElement();
+        connection.AddToClassList("skill-connection");
+        
+        // Calculate connection position and rotation
+        Vector2 startPos = start.worldBound.center;
+        Vector2 endPos = end.worldBound.center;
+        float angle = Mathf.Atan2(endPos.y - startPos.y, endPos.x - startPos.x) * Mathf.Rad2Deg;
+        float distance = Vector2.Distance(startPos, endPos);
+
+        connection.style.width = distance;
+        connection.style.rotate = new StyleRotate(new Rotate(angle));
+        connection.style.left = startPos.x;
+        connection.style.top = startPos.y;
+        
+        skillTreeContainer.Add(connection);
     }
 
     private void UpdateAllNodeStates()
@@ -128,13 +149,14 @@ public class SkillTreeUI : MonoBehaviour
 
     private void UpdateSkillPoints()
     {
-        skillPointsText.text = $"Skill Points: {SkillManager.Instance.GetCurrentSkillPoints()}";
+        if (skillPointsLabel != null)
+        {
+            skillPointsLabel.text = $"Skill Points: {SkillManager.Instance.GetCurrentSkillPoints()}";
+        }
     }
 
     private int GetSkillTier(SkillData skill)
     {
-        // Simple tier calculation based on prerequisites
-        // You might want to customize this based on your skill tree structure
         if (skill.prerequisiteSkills.Length == 0) return 0;
         
         int maxTier = 0;
@@ -151,8 +173,6 @@ public class SkillTreeUI : MonoBehaviour
 
     private int GetSkillPositionInTier(SkillData skill, int tier)
     {
-        // Simple position calculation
-        // You might want to customize this based on your skill tree layout
         int position = 0;
         foreach (var otherSkill in skillNodes.Values)
         {

@@ -1,0 +1,277 @@
+.quest-panel {
+    width: 1000px;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+}
+
+.header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.title {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+}
+
+.close-button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background-color: transparent;
+    border-width: 0;
+    color: rgb(255, 255, 255);
+}
+
+.close-button:hover {
+    color: rgb(255, 100, 100);
+}
+
+.content {
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.left-panel {
+    width: 300px;
+    border-right-width: 1px;
+    border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+.quest-filters {
+    flex-direction: row;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-width: 0;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 3px;
+    color: rgb(200, 200, 200);
+}
+
+.filter-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-button.selected {
+    background-color: rgb(70, 130, 180);
+    color: white;
+}
+
+.quest-list {
+    flex-grow: 1;
+}
+
+.quest-entry {
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.quest-entry:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.quest-entry.selected {
+    background-color: rgba(70, 130, 180, 0.3);
+}
+
+.quest-entry.completed {
+    opacity: 0.6;
+}
+
+.right-panel {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.quest-details {
+    display: none;
+    flex-grow: 1;
+}
+
+.quest-details.visible {
+    display: flex;
+    flex-direction: column;
+}
+
+.quest-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.quest-icon {
+    width: 64px;
+    height: 64px;
+    margin-right: 10px;
+}
+
+.quest-title-container {
+    flex-grow: 1;
+}
+
+.quest-title {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+}
+
+.quest-type {
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+    margin-top: 5px;
+}
+
+.quest-description {
+    color: rgb(200, 200, 200);
+    white-space: normal;
+    margin: 10px 0;
+}
+
+.quest-progress {
+    margin: 15px 0;
+}
+
+.section-title {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    -unity-font-style: bold;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    height: 6px;
+    margin: 5px 0;
+}
+
+.progress-bar .unity-progress-bar__progress {
+    background-color: rgb(70, 130, 180);
+}
+
+.time-remaining {
+    color: rgb(255, 200, 100);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.objectives-list {
+    margin: 10px 0;
+    flex-grow: 1;
+}
+
+.objective-entry {
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    margin: 2px 0;
+}
+
+.objective-entry.completed {
+    opacity: 0.6;
+}
+
+.objective-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.objective-text {
+    flex-grow: 1;
+    color: rgb(200, 200, 200);
+}
+
+.objective-progress {
+    color: rgb(150, 150, 150);
+    margin-left: 10px;
+}
+
+.rewards-section {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.rewards-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.reward-item {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+}
+
+.reward-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.reward-amount {
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    margin-top: 5px;
+}
+
+.quest-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.action-button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-width: 0;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.action-button.accept {
+    background-color: rgb(70, 130, 180);
+    color: white;
+}
+
+.action-button.accept:hover {
+    background-color: rgb(60, 110, 160);
+}
+
+.action-button.abandon {
+    background-color: rgb(180, 70, 70);
+    color: white;
+}
+
+.action-button.abandon:hover {
+    background-color: rgb(160, 60, 60);
+}
+
+.action-button.track {
+    background-color: rgb(70, 180, 70);
+    color: white;
+}
+
+.action-button.track:hover {
+    background-color: rgb(60, 160, 60);
+} 

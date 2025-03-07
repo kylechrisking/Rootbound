@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd">
+
+    <engine:VisualElement class="achievement-entry">
+        <engine:VisualElement name="achievement-icon" class="icon" />
+        <engine:VisualElement class="content">
+            <engine:Label name="achievement-name" class="name" />
+            <engine:Label name="achievement-description" class="description" />
+            <engine:ProgressBar name="achievement-progress" class="progress" />
+        </engine:VisualElement>
+        <engine:VisualElement name="completion-indicator" class="completion" />
+    </engine:VisualElement>
+
+</engine:UXML> 

@@ -1,78 +1,69 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UIElements;
 
 public class AchievementEntryUI : MonoBehaviour
 {
-    [Header("UI Elements")]
-    [SerializeField] private Image iconImage;
-    [SerializeField] private TextMeshProUGUI titleText;
-    [SerializeField] private TextMeshProUGUI descriptionText;
-    [SerializeField] private TextMeshProUGUI progressText;
-    [SerializeField] private Image progressBar;
-    [SerializeField] private GameObject rewardIcon;
-    [SerializeField] private TextMeshProUGUI rewardText;
-    
-    [Header("Visual States")]
-    [SerializeField] private Color unlockedColor = Color.white;
-    [SerializeField] private Color lockedColor = new Color(0.5f, 0.5f, 0.5f);
+    private VisualElement root;
+    private VisualElement icon;
+    private Label nameLabel;
+    private Label descriptionLabel;
+    private ProgressBar progressBar;
+    private VisualElement completionIndicator;
 
-    public AchievementManager.Achievement Achievement { get; private set; }
+    private string achievementId;
 
-    public void Initialize(AchievementManager.Achievement achievement)
+    private void Awake()
     {
-        Achievement = achievement;
-        
-        // Set basic info
-        titleText.text = achievement.data.title;
-        descriptionText.text = achievement.data.description;
-        
-        if (achievement.data.icon != null)
+        var document = GetComponent<UIDocument>();
+        if (document == null)
         {
-            iconImage.sprite = achievement.data.icon;
+            Debug.LogError("No UIDocument found on AchievementEntryUI!");
+            return;
         }
 
-        // Set reward info
-        string rewardString = "";
-        if (achievement.data.skillPointReward > 0)
-        {
-            rewardString += $"+{achievement.data.skillPointReward} SP";
-        }
-        if (achievement.data.growthBoostReward > 0)
-        {
-            if (rewardString != "") rewardString += ", ";
-            rewardString += $"+{achievement.data.growthBoostReward * 100}% Growth";
-        }
-        
-        rewardText.text = rewardString;
-        rewardIcon.SetActive(!string.IsNullOrEmpty(rewardString));
-
-        UpdateProgress();
-        UpdateVisualState();
+        root = document.rootVisualElement.Q<VisualElement>("achievement-entry");
+        icon = root.Q<VisualElement>("achievement-icon");
+        nameLabel = root.Q<Label>("achievement-name");
+        descriptionLabel = root.Q<Label>("achievement-description");
+        progressBar = root.Q<ProgressBar>("achievement-progress");
+        completionIndicator = root.Q<VisualElement>("completion-indicator");
     }
 
-    public void UpdateProgress()
+    public void Initialize(Achievement achievement)
     {
-        if (Achievement.data.hasProgress)
+        achievementId = achievement.id;
+        
+        nameLabel.text = achievement.name;
+        descriptionLabel.text = achievement.description;
+        
+        if (achievement.icon != null)
         {
-            float progress = Achievement.currentProgress / Achievement.data.progressTarget;
-            progressBar.fillAmount = progress;
-            progressText.text = string.Format(Achievement.data.progressFormat, 
-                Achievement.currentProgress, Achievement.data.progressTarget);
+            icon.style.backgroundImage = new StyleBackground(achievement.icon);
+        }
+
+        UpdateProgress(achievement);
+    }
+
+    public void UpdateProgress(Achievement achievement)
+    {
+        if (achievement.isCompleted)
+        {
+            root.AddToClassList("completed");
+            root.RemoveFromClassList("locked");
+            progressBar.style.display = DisplayStyle.None;
+        }
+        else if (achievement.isLocked)
+        {
+            root.AddToClassList("locked");
+            root.RemoveFromClassList("completed");
+            progressBar.style.display = DisplayStyle.None;
         }
         else
         {
-            progressBar.fillAmount = Achievement.isUnlocked ? 1f : 0f;
-            progressText.text = Achievement.isUnlocked ? "Completed!" : "Incomplete";
+            root.RemoveFromClassList("completed");
+            root.RemoveFromClassList("locked");
+            progressBar.style.display = DisplayStyle.Flex;
+            progressBar.value = achievement.progress * 100;
         }
-
-        UpdateVisualState();
-    }
-
-    private void UpdateVisualState()
-    {
-        Color targetColor = Achievement.isUnlocked ? unlockedColor : lockedColor;
-        iconImage.color = targetColor;
-        titleText.color = targetColor;
     }
 } 

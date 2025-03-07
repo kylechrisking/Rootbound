@@ -1,0 +1,75 @@
+.skill-node {
+    width: 100px;
+    height: 120px;
+    align-items: center;
+    position: absolute;
+}
+
+.skill-node .frame {
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-node .icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+}
+
+.skill-node .lock {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: resource('Icons/lock');
+}
+
+.skill-node .name {
+    font-size: 14px;
+    -unity-text-align: upper-center;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    white-space: normal;
+}
+
+.locked .frame {
+    border-color: rgb(100, 100, 100);
+}
+
+.locked .icon {
+    opacity: 0.5;
+}
+
+.available .frame {
+    border-color: rgb(66, 220, 219);
+    transition: all 0.2s;
+}
+
+.available .icon {
+    opacity: 1;
+}
+
+.available:hover .frame {
+    border-color: rgb(100, 255, 255);
+    scale: 1.05;
+}
+
+.unlocked .frame {
+    border-color: rgb(0, 255, 0);
+}
+
+.unlocked .icon {
+    opacity: 1;
+}
+
+.skill-connection {
+    height: 2px;
+    background-color: rgb(66, 220, 219);
+    position: absolute;
+    transform-origin: left;
+} 

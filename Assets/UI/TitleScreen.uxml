@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd">
+
+    <engine:VisualElement name="root" class="screen title-screen">
+        <engine:Label text="ROOTBOUND" class="title-text" />
+        
+        <!-- Player Profile Section -->
+        <engine:VisualElement name="profile-container" class="profile-container">
+            <engine:VisualElement name="player-icon" class="player-icon" />
+            <engine:VisualElement class="profile-info">
+                <engine:Label name="username-text" class="username-text" />
+                <engine:VisualElement class="level-container">
+                    <engine:Label name="level-text" class="level-text" />
+                    <engine:ProgressBar name="xp-progress" class="xp-bar" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+
+        <!-- Main Menu Buttons -->
+        <engine:VisualElement name="button-container" class="menu-buttons">
+            <engine:Button text="Play" name="play-button" class="menu-button" />
+            <engine:Button text="Options" name="options-button" class="menu-button" />
+            <engine:Button text="Quit" name="quit-button" class="menu-button" />
+        </engine:VisualElement>
+
+        <!-- Version Info -->
+        <engine:VisualElement class="version-container">
+            <engine:Label name="version-text" class="version-text" />
+            <engine:Label name="build-text" class="build-text" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+
+</engine:UXML> 

@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public enum SkillNodeState
 {
@@ -10,22 +8,40 @@ public enum SkillNodeState
     Unlocked
 }
 
-public class SkillNodeUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class SkillNodeUI : MonoBehaviour
 {
-    [Header("UI Elements")]
-    [SerializeField] private Image iconImage;
-    [SerializeField] private Image frameImage;
-    [SerializeField] private GameObject lockIcon;
-    [SerializeField] private TextMeshProUGUI skillNameText;
+    private UIDocument document;
+    private VisualElement iconElement;
+    private VisualElement frameElement;
+    private VisualElement lockIcon;
+    private Label skillNameLabel;
     
-    [Header("Colors")]
-    [SerializeField] private Color lockedColor = new Color(0.5f, 0.5f, 0.5f, 1f);
-    [SerializeField] private Color availableColor = Color.white;
-    [SerializeField] private Color unlockedColor = Color.green;
-
     public SkillData SkillData { get; private set; }
     private System.Action<SkillNodeUI> onClickCallback;
     private SkillNodeState currentState;
+
+    private void Awake()
+    {
+        document = GetComponent<UIDocument>();
+        if (document == null)
+        {
+            Debug.LogError("No UIDocument found on SkillNodeUI!");
+            return;
+        }
+
+        var root = document.rootVisualElement;
+        
+        // Get references to UI elements
+        iconElement = root.Q<VisualElement>("skill-icon");
+        frameElement = root.Q<VisualElement>("skill-frame");
+        lockIcon = root.Q<VisualElement>("lock-icon");
+        skillNameLabel = root.Q<Label>("skill-name");
+
+        // Set up click handler
+        root.RegisterCallback<ClickEvent>(OnNodeClicked);
+        root.RegisterCallback<MouseEnterEvent>(OnNodeMouseEnter);
+        root.RegisterCallback<MouseLeaveEvent>(OnNodeMouseLeave);
+    }
 
     public void Initialize(SkillData skillData, System.Action<SkillNodeUI> onClick)
     {
@@ -33,8 +49,15 @@ public class SkillNodeUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         onClickCallback = onClick;
 
         // Set up visual elements
-        iconImage.sprite = skillData.icon;
-        skillNameText.text = skillData.skillName;
+        if (iconElement != null)
+        {
+            iconElement.style.backgroundImage = new StyleBackground(skillData.icon);
+        }
+        
+        if (skillNameLabel != null)
+        {
+            skillNameLabel.text = skillData.skillName;
+        }
         
         SetState(SkillNodeState.Locked);
     }
@@ -43,41 +66,40 @@ public class SkillNodeUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         currentState = state;
         
-        switch (state)
+        // Remove all state classes first
+        frameElement?.RemoveFromClassList("locked");
+        frameElement?.RemoveFromClassList("available");
+        frameElement?.RemoveFromClassList("unlocked");
+        
+        iconElement?.RemoveFromClassList("locked");
+        iconElement?.RemoveFromClassList("available");
+        iconElement?.RemoveFromClassList("unlocked");
+
+        string stateClass = state.ToString().ToLower();
+        
+        // Add appropriate state class
+        frameElement?.AddToClassList(stateClass);
+        iconElement?.AddToClassList(stateClass);
+        
+        if (lockIcon != null)
         {
-            case SkillNodeState.Locked:
-                frameImage.color = lockedColor;
-                iconImage.color = lockedColor;
-                lockIcon.SetActive(true);
-                break;
-
-            case SkillNodeState.Available:
-                frameImage.color = availableColor;
-                iconImage.color = availableColor;
-                lockIcon.SetActive(false);
-                break;
-
-            case SkillNodeState.Unlocked:
-                frameImage.color = unlockedColor;
-                iconImage.color = Color.white;
-                lockIcon.SetActive(false);
-                break;
+            lockIcon.style.display = state == SkillNodeState.Locked ? DisplayStyle.Flex : DisplayStyle.None;
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void OnNodeMouseEnter(MouseEnterEvent evt)
     {
         // Show tooltip
         SkillTooltip.Show(SkillData, transform.position);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnNodeMouseLeave(MouseLeaveEvent evt)
     {
         // Hide tooltip
         SkillTooltip.Hide();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void OnNodeClicked(ClickEvent evt)
     {
         if (currentState == SkillNodeState.Available)
         {
