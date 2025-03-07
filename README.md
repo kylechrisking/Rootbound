@@ -1,5 +1,9 @@
 # Rootbound
 
+<p align="center">
+  <img src="Assets/Logo/RootBound_Logo.jpeg" alt="Rootbound Logo" width="300"/>
+</p>
+
 Rootbound is a cozy farming and exploration game where you play as a magical tree spirit, growing and nurturing your roots while discovering the mysteries of the world around you.
 
 ## Features
@@ -86,10 +90,33 @@ Assets/
 4. Push to the branch
 5. Create a Pull Request
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Branding & Legal
 
-## Acknowledgments
-- Unity Technologies for the game engine and UI Toolkit
-- Contributors and testers
-- Community feedback and support 
+### Branding Guidelines
+See [BRANDING.md](BRANDING.md) for comprehensive guidelines on:
+- Logo usage and restrictions
+- Color palette
+- Typography
+- Asset usage rights
+- Social media guidelines
+
+### License
+This project is proprietary software. See the [LICENSE](LICENSE) file for details.
+
+#### Permitted Uses
+- Viewing and studying the code
+- Creating non-commercial mods through official APIs
+- Creating fan art and content (with attribution)
+- Streaming and reviewing gameplay
+
+#### Restricted Uses
+- Commercial use without permission
+- Redistribution of game assets
+- Creation of competing products
+- Unauthorized modifications
+
+## Community Guidelines
+- Join our community: [Links to be added]
+- Share your creations with #RootboundGame
+- Follow our branding guidelines for fan content
+- Contact us for commercial licensing

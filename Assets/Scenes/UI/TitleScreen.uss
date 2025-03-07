@@ -10,6 +10,33 @@
     100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(66, 220, 219, 0.3), 0 0 40px rgba(66, 220, 219, 0.2); }
 }
 
+@keyframes logoFloat {
+    0% { translate: 0 0; }
+    50% { translate: 0 -10px; }
+    100% { translate: 0 0; }
+}
+
+.logo-container {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('project://database/Assets/Logo/RootBound_Logo.jpeg');
+    -unity-background-scale-mode: scale-to-fit;
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover .logo-image {
+    scale: 1.05;
+    rotate: 2deg;
+}
+
 .screen {
     flex-grow: 1;
     align-items: center;

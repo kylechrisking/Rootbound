@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2024-03-21
 ### Added
+- Official Rootbound logo and branding
+  - Added comprehensive branding guidelines
+  - Defined color palette and usage rules
+  - Added to title screen with animation effects
+  - Integrated into README for project identification
+- Legal Documentation
+  - Added detailed licensing terms
+  - Created branding usage guidelines
+  - Clarified community content rules
 - Quest System
   - Multiple objective types support
   - Daily and weekly quest generation
@@ -39,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced inventory system for museum exhibits
 - Improved notification system architecture
 - Refined achievement system integration
+- Updated project documentation with logo and branding
 
 ### Fixed
 - UI layout issues in museum grid display
